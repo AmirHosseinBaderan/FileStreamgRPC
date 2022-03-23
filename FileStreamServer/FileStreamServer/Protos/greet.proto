@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "FileStreamServer";
+
+package fileStreaming;
+
+// The greeting service definition.
+service StreamFile {
+ rpc UpStreamFile(stream Chunk) returns (FileResult);
+}
+
+message Chunk{
+	bytes buffer = 1;
+}
+
+message FileResult{
+	int32 status = 1;
+}
+
